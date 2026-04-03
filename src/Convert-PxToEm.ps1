@@ -1,7 +1,10 @@
-# 3. Script with simple function
+# 4. Script with advanced functions
 
+<--!
+.
+-->
 
-function Convert-PxToEm {
+function Convert-PxToEm{
 
     param(
         [int] $FontSize,
@@ -10,8 +13,27 @@ function Convert-PxToEm {
 
     $ratio = $FontSize/$PixelValue
 
-    Write-Host "$PixelValue px is equivalent to $ratio em."
+    $output = "$PixelValue px is equivalent to $ratio em."
+
+    Write-Host  $Output
 }
+
+Convert-PxToEm -FontSize 16 -PixelValue 32
+
+# # 3. Script with simple function
+
+
+# function Convert-PxToEm {
+
+#     param(
+#         [int] $FontSize,
+#         [int] $PixelValue
+#     )
+
+#     $ratio = $FontSize/$PixelValue
+
+#     Write-Host "$PixelValue px is equivalent to $ratio em."
+# }
 
 
  
@@ -32,7 +54,7 @@ function Convert-PxToEm {
 
 
 
-# # 1. Script with oneliner commands
+# # 1. Script with one-liner commands
 
 # $FontSize = Read-Host "Default font-size of a element" 
 # $PixelValue = Read-Host "Pixel value to convert"
