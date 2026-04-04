@@ -36,10 +36,11 @@ function Convert-PxToEm{
     Online version: https://github.com/egiberne/Convert-PxToEm
     #>
 
+    [CmdletBinding()]
     param(
         [PSDefaultValue(help= '16px is the default value')]    
-        [int] $FontSize = 16,
-        [int] $PixelValue
+         $FontSize = 16,
+         $PixelValue
     )
     begin{
          $PxToEm = [pscustomobject]@{
@@ -53,13 +54,13 @@ function Convert-PxToEm{
 
     process{
         if ($PSItem){
-            $PxToEm.Pixel = $_
-            $PxToEm.Ratio = $FontSize/$_
+            $PxToEm.TargetedPixel = $_
+            $PxToEm.Ratio = $FontSize/ $_
             $PxToEm | Add-Member -MemberType ScriptProperty -Name "Result" -Value {"$($this.Pixel)px:$($this.Ratio)em"} -Force
             return  $PxToEm
         } else {
-            $PxToEm.Pixel=$PixelValue
-            $PxToEm.Ratio = $FontSize/$PixelValue
+            $PxToEm.TargetedPixel=$PixelValue
+            $PxToEm.Ratio =  $FontSize/ $PixelValue
             $PxToEm | Add-Member -MemberType ScriptProperty -Name "Result" -Value {"$($this.Pixel)px:$($this.Ratio)em"} -Force            
             return  $PxToEm
         }

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.0 - 2026-04-04
+### Added
+Implement Cmdlet with using the keyword CmdletBinding
+### Changed
+Remove the type of the parameter `-FontSize` and `-PixelValue` to implement splatting afterwards
+Rephrase the content of the roadmap to be more specific
+
 ## 0.7.0 - 2026-04-04
 ### Added
 Implement the PSObject to return the default pixel size, the targeted pixel size, the conversion in em and a text result
