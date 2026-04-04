@@ -13,10 +13,25 @@ function Convert-PxToEm{
     .INPUTS
     System.Int32. You can pipe integer to Convert-PxToEm, to set the pixel value.
     .OUTPUTS
-    System.String. Convert-PxToEm returns a string that provide result of the conversion.
+    System.Management.Automation.PSCustomObject. Convert-PxToEm returns a PSCustomObject that provide result of the conversion.
     .EXAMPLE
-    PS> Convert-PxToEm -FontSize 16 -PixelValue 32
-    32 px is equivalent to 0.5 em.
+    PS> Convert-pxToEm 18 36
+    DefaultSize Pixel Ratio Result
+    ----------- ----- ----- ------
+         18    36  0.50 36px:0.5em
+    .EXAMPLE 
+    PS>$P2E = Convert-PxToEm 16 32 
+    PS> $P2E | Format-List
+    DefaultSize : 16
+    Pixel       : 32
+    Ratio       : 0.5
+    Result      : 32px:0.5em
+    .EXAMPLE
+    PS>16, 32 | Convert-PxToEm -FontSize 16
+    DefaultSize Pixel Ratio Result
+    ----------- ----- ----- ------
+            16    16     1 16px:1em
+            16    32  0.50 32px:0.5em
     .LINK
     Online version: https://github.com/egiberne/Convert-PxToEm
     #>
@@ -26,17 +41,27 @@ function Convert-PxToEm{
         [int] $FontSize = 16,
         [int] $PixelValue
     )
+    begin{
+         $PxToEm = [pscustomobject]@{
+            "DefaultPixel"=$FontSize
+            "TargetedPixel"=''
+            "Ratio"=''
+         }       
+        
+
+    }
 
     process{
         if ($PSItem){
-            $PixelValue = $_
-            $ratio = $FontSize/$PixelValue
-            $output = "$PixelValue px is equivalent to $ratio em."
-            return  $Output
+            $PxToEm.Pixel = $_
+            $PxToEm.Ratio = $FontSize/$_
+            $PxToEm | Add-Member -MemberType ScriptProperty -Name "Result" -Value {"$($this.Pixel)px:$($this.Ratio)em"} -Force
+            return  $PxToEm
         } else {
-            $ratio = $FontSize/$PixelValue
-            $output = "$PixelValue px is equivalent to $ratio em."
-            return  $Output
+            $PxToEm.Pixel=$PixelValue
+            $PxToEm.Ratio = $FontSize/$PixelValue
+            $PxToEm | Add-Member -MemberType ScriptProperty -Name "Result" -Value {"$($this.Pixel)px:$($this.Ratio)em"} -Force            
+            return  $PxToEm
         }
 
     }
