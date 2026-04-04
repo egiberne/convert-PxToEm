@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.0 - 2026-04-04
+### Change
+Replace the `Write-Host` in the function with `return` keyword to have a `String` provided by the function
+
+
 ## 0.4.1 - 2026-04-03
 ### Fixed
 - Correct the script with appropriate comment as know as Comment-Base Help
@@ -7,19 +12,19 @@
 
 ## 0.4.0 - 2026-04-03
 ### Changed
-- Update the README.md with the new badge for Visual Studio Code
+- Update the README with the new badge for Visual Studio Code
 - Use a variable to provide the output of the function with Write-Host
-- Update the README.md with Output sections
+- Update the README with Output sections
 
 ### Fixed
-- Correct the misspelled words in the README.md
+- Correct the misspelled words in the README
 
 
 ## 0.3.0 - 2026-04-03
 ### Changed
-- Update the README.md with the section, Requirement to be allow to run the script
-- Update the README.md with the section, Example to explain how to use the script 
-- Implement the function Convert-PxToEm
+- Update the README with the section, Requirement to be allow to run the script
+- Update the README with the section, Example to explain how to use the script 
+- Implement the function `Convert-PxToEm`
 
 
 ## 0.2.1 - 2026-04-03

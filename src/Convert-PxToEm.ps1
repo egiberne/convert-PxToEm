@@ -1,16 +1,11 @@
 # 4. Script with advanced functions
 
-<#
-.SYNOPSIS 
-Script with advanced function features to convert pixel to em.
-#>
-
 function Convert-PxToEm{
     <#
     .SYNOPSIS 
     Convert pixel to em.
     .DESCRIPTION 
-    The Convert-PxToEm function helps to adjust a **pixel** value into equivalent **em** value, based on the default font size of an element.
+    The Convert-PxToEm function helps to adjust a pixel value into equivalent em value, based on the default font size of an element.
     .PARAMETER FontSize
     Default font-size of the element.
     .PARAMETER PixelValue
@@ -18,7 +13,7 @@ function Convert-PxToEm{
     .INPUTS
     None. You can't pipe objects to Convert-PxToEm.
     .OUTPUTS
-    None. You can't return objects for Convert-PxToEm.
+    System.String . Convert-PxToEm returns a string that provide result of the conversion.
     .EXAMPLE
     PS> Convert-PxToEm -FontSize 16 -PixelValue 32
     32 px is equivalent to 0.5 em.
@@ -27,18 +22,20 @@ function Convert-PxToEm{
     #>
 
     param(
-        [int] $FontSize,
+        [int] $FontSize = 16,
         [int] $PixelValue
     )
 
-    $ratio = $FontSize/$PixelValue
-
-    $output = "$PixelValue px is equivalent to $ratio em."
-
-    Write-Host  $Output
+    
+        Write-Debug $_
+        $ratio = $FontSize/$PixelValue
+        $output = "$PixelValue px is equivalent to $ratio em."
+        return  $Output
+    
+ 
 }
 
-# Convert-PxToEm -FontSize 16 -PixelValue 32
+# Convert-PxToEm -FontSize 1 -PixelValue 32
 
 # # 3. Script with simple function
 
