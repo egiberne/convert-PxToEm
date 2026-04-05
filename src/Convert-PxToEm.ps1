@@ -3,13 +3,16 @@
 function Convert-PxToEm{
     <#
     .SYNOPSIS 
-    Convert pixel to em.
+    Convert pixel value to em value.
     .DESCRIPTION 
-    The Convert-PxToEm function helps to adjust a pixel value into equivalent em value, based on the default font size of an element.
+    Convert-PxToEm converts one or more pixel values into their equivalent
+    em values by dividing each pixel value by the provided font size.
+    This allows developers to translate fixed pixel measurements into
+    scalable, typography-relative em units.
     .PARAMETER FontSize
     Default font-size of the element.
     .PARAMETER PixelValue
-    Pixel Value to convert.
+    ! or multiple Pixel Value to convert.
     .INPUTS
     System.Int32. You can pipe integer to Convert-PxToEm, to set the pixel value.
     .OUTPUTS
@@ -34,26 +37,27 @@ function Convert-PxToEm{
             16    32  0.50 32px:0.5em
     .LINK
     Online version: https://github.com/egiberne/Convert-PxToEm
+    .NOTES
+    Author  : EMERICK GIBERNE
+    Version : 0.10.1
     #>
 
     [CmdletBinding()]
     param(
         [Parameter(Position = 0)]
-        #[ValidateNotNullOrEmpty]
         [ValidateRange(1, [int]::MaxValue)]
         [PSDefaultValue(Help= 'Defaults to 16px. Standard browser font size.')]    
         [int]$FontSize = 16,
 
         [Parameter(
+            Position =1,
             ValueFromPipeline, 
             ValueFromPipelineByPropertyName, 
             Mandatory)]
         [ValidateRange(1, [int]::MaxValue)]
         [int]$PixelValue
     )
-    begin{
-
-    }
+    begin{}
 
     process{
 
@@ -62,69 +66,25 @@ function Convert-PxToEm{
             "TargetedPixel"=''
             "Ratio"=''
         }
-
-
-        if ($PSItem){ write-host "using pipeline"
+        if ($PSItem){
             $PxToEm.DefaultPixel = $FontSize
             $PxToEm.TargetedPixel = $_
             $PxToEm.Ratio = $FontSize/ $_
             $PxToEm | Add-Member -MemberType ScriptProperty -Name "Compute" -Value {"$($this.DefaultPixel)px/$($this.TargetedPixel) = $($this.Ratio) em"} -Force
             return  $PxToEm
-        } else {write-host "not using pipeline"
+            #return $FontSize/ $_
+        } else {
             $PxToEm.DefaultPixel = $FontSize
             $PxToEm.TargetedPixel=$PixelValue
             $PxToEm.Ratio =  $FontSize/ $PixelValue
             $PxToEm | Add-Member -MemberType ScriptProperty -Name "Compute" -Value {"$($this.DefaultPixel)px/$($this.TargetedPixel) = $($this.Ratio) em"} -Force            
             return  $PxToEm
+            #return $FontSize/ $PixelValue
         }
 
     }
 
-    end{
-
-    }
+    end{ }
     
  
 }
-
-# Convert-PxToEm -FontSize 1 -PixelValue 32
-
-# # 3. Script with simple function
-
-
-# function Convert-PxToEm {
-
-#     param(
-#         [int] $FontSize,
-#         [int] $PixelValue
-#     )
-
-#     $ratio = $FontSize/$PixelValue
-
-#     Write-Host "$PixelValue px is equivalent to $ratio em."
-# }
-
-
- 
-# Convert-PxToEm -FontSize 16 -PixelValue 32
-
-# # 2. Script with variable and parameters
-
-# param(
-#     # parameters
-#     [Int16] $FontSize,
-#     [Int16] $PixelValue
-# )
-
-# # variable 
-# $ratio = $FontSize/$PixelValue
-
-# Write-Host $PixelValue"px is similar to : " $ratio"em."  
-
-
-
-# # 1. Script with one-liner commands
-
-# $FontSize = Read-Host "Default font-size of a element" 
-# $PixelValue = Read-Host "Pixel value to convert"
-# Write-Host $PixelValue"px is : " $($FontSize/$PixelValue) "em."

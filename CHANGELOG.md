@@ -1,10 +1,17 @@
 # Changelog
 
-## 0.10.0 - 2026-04-04
+## 0.10.1 - 2026-04-05
+### Add
+Support array splatting by using statement Parameter with the attribute `Position = 0` for the parameter `$SizeFont` 
+and `Position = 1` for the parameter `$PixelValue`
+### Changed
+Replace the description to have a detailed explanation of the function’s purpose, behavior, and usage.
+
+## 0.10.0 - 2026-04-05
 ### Add
 - Support parameters validation with the statement `ValidateRange`
 
-## 0.9.0 - 2026-04-04
+## 0.9.0 - 2026-04-05
 ### Changed
 - Implement `CmdletBinding` with the keyword `ValueFromPipeline` for $PixelValue assign through the pipeline
 - Implement `CmdletBinding` with the keyword `Mandatory` for $PixelValue as it is required
