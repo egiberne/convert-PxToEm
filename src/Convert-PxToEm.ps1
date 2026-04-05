@@ -12,9 +12,9 @@ function Convert-PxToEm{
     .PARAMETER FontSize
     Default font-size of the element.
     .PARAMETER PixelValue
-    ! or multiple Pixel Value to convert.
+    Pixel Value to convert.
     .INPUTS
-    System.Int32. You can pipe integer to Convert-PxToEm, to set the pixel value.
+    System.Int32. You can pipe one or multiple pixel value to Convert-PxToEm.
     .OUTPUTS
     System.Management.Automation.PSCustomObject. Convert-PxToEm returns a PSCustomObject that provide result of the conversion.
     .EXAMPLE
@@ -39,7 +39,7 @@ function Convert-PxToEm{
     Online version: https://github.com/egiberne/Convert-PxToEm
     .NOTES
     Author  : EMERICK GIBERNE
-    Version : 0.10.1
+    Version : 0.10.2
     #>
 
     [CmdletBinding()]

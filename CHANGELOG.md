@@ -1,50 +1,60 @@
 # Changelog
 
+## 0.10.2 - 2026-04-05
+### Fixed
+Correct the misspelled  words  in the file, Changelog
+Correct the wording in the file, Changelog to clarify the explanations 
+### Added
+Complete the roadmap in the README with new steps
+
 ## 0.10.1 - 2026-04-05
-### Add
-Support array splatting by using statement Parameter with the attribute `Position = 0` for the parameter `$SizeFont` 
-and `Position = 1` for the parameter `$PixelValue`
+### Added
+- Support array splatting by using statement `Parameter`
+with the attribute `Position = 0` for the parameter `$SizeFont` and `Position = 1` for the parameter `$PixelValue`
+- Support the pipeline with using the statement `ValueFromPipelineByPropertyName` to assign value with name\value
 ### Changed
 Replace the description to have a detailed explanation of the function’s purpose, behavior, and usage.
 
 ## 0.10.0 - 2026-04-05
-### Add
+### Added
 - Support parameters validation with the statement `ValidateRange`
 
 ## 0.9.0 - 2026-04-05
 ### Changed
-- Implement `CmdletBinding` with the keyword `ValueFromPipeline` for $PixelValue assign through the pipeline
+- Support pipeline by using the statement `ValueFromPipeline` to assign variable through the pipe
 - Implement `CmdletBinding` with the keyword `Mandatory` for $PixelValue as it is required
 - Replace the ordered list in the roadmap section Script module with unordered list
 - Refactor the move to `PSCustomObject` to the section `process`
 
 ## 0.8.0 - 2026-04-04
 ### Added
-Implement Cmdlet with using the keyword CmdletBinding
+Implement advanced function by using the statement  `CmdletBinding` to leverage Cmdlet features
 ### Changed
 - Remove the type of the parameter `-FontSize` and `-PixelValue` to implement splatting afterwards
-- Rephrase the content of the roadmap to be more specific
+### Fixed
+Rephrase the content of the roadmap to be more specific
 
 ## 0.7.0 - 2026-04-04
 ### Added
-Implement the PSObject to return the default pixel size, the targeted pixel size, the conversion in em and a text result
+Implement the PowerShell Object with the type `PSCustomObject` to return a object with the default pixel size, 
+the targeted pixel size, the operation of the conversion in em and a text result
 ### Changed
-Replaced the examples with new output because of the PSObject returned
+Replace the examples with new outputs because of the `PSObject` returned
 
 ## 0.6.0 - 2026-04-04
 ### Added
-Implement the pipeline to assign one or multiple pixel values one to the function by pipping
+Support pipeline by using the statement `ValueFromPipeline` to assign one or multiple pixel values to the function by piping
 
 ### Changed
-Update the roadmap in the README to detailed the features implemented
+Update the roadmap in the README to detail the features implemented
 
 ## 0.5.0 - 2026-04-04
-### Change
+### Changed
 Replace the `Write-Host` in the `return` keyword to assign a `String` value to a variable or to pipe to other commands
 
 ## 0.4.1 - 2026-04-03
 ### Fixed
-- Correct the script with appropriate comment as know as Comment-Base Help
+- Correct the script with appropriate comment as know as `Comment-Base Help`
 - Correct the misspelled words in the README
 
 ## 0.4.0 - 2026-04-03
@@ -59,19 +69,19 @@ Correct the misspelled words in the README
 ### Changed
 - Update the README with the section, Requirement to be allow to run the script
 - Update the README with the section, Example to explain how to use the script 
-- Implement the function `Convert-PxToEm`
+- Implement a simple function `Convert-PxToEm`
 
 ## 0.2.1 - 2026-04-03
 ### Fixed
-Correct the Roadmap in the README.md to a ordered list
+Correct the Roadmap in the README to a ordered list
 
 ### Changed
-Update the README.md with the badge related to the MIT License
+Update the README with the badge related to the MIT License
 
 ## 0.2.0 - 2026-04-03
 ### Changed
 - Implement the script with variables and parameters
-- Update the Roadmap section in the the README with a step, Script with functions
+- Update the Roadmap section in the the README with the step, Script with functions
 
 ## 0.1.0 - 2026-04-03
 
