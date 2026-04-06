@@ -15,7 +15,7 @@ Convert-PxToEm is a PowerShell script that helps to adjust a **pixel** value int
 1. Script with advanced function features 
     - Implement function as Cmdlet with keyword, `CmdletBinding`
     - Implement splatting with array
-    - Implement splatting with hashtable
+    - Implement splatting with hash table
 1. Script module 
     - Implement a revert function to convert em to pixel
     - Implement a main function with `switch` type

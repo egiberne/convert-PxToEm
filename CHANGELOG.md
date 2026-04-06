@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.3 - 2026-04-05
+### Fixed
+Clean up the code by deleting the unnecessary comments
+### Changed
+Replace `Ratio` by `Em` in the structured return
+
 ## 0.10.2 - 2026-04-05
 ### Fixed
 Correct the misspelled  words  in the file, Changelog
